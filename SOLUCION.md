@@ -79,4 +79,4 @@
 **Por qué funciona ahora:** Ahora espera a que el archivo este disponible antes de continuar
 
 ### Ahora ya funciona el server:
-![alt text](imagenes/servidorcorregido.png)
+![alt text](screenshots/servidorcorregido.png)
