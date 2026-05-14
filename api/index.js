@@ -112,6 +112,34 @@ app.get('/api/pokemon/:id', (req, res) => {
     res.status(200).json({ ok: true, data: pokemon });
 });
 
+// POST /api/pokemon : Crear un nuevo Pokémon
+app.post('/api/pokemon', (req, res) => {
+    const { nombre, tipo, nivel, hp, ataques } = req.body;
+
+    // Validación
+    if (!nombre || !tipo || nivel === undefined || hp === undefined || !ataques) {
+        return res.status(400).json({ 
+            ok: false, 
+            error: "Faltan campos obligatorios. Asegúrate de enviar el nombre, tipo, nivel, hp y ataques." 
+        });
+    }
+
+    // Creamos el nuevo Pokémon
+    const nuevoPokemon = {
+        id: crypto.randomUUID(),
+        nombre,
+        tipo,
+        nivel,
+        hp,
+        ataques
+    };
+
+    pokedex.push(nuevoPokemon);
+
+    // Devolvemos 201 con el nuevo Pokémon
+    res.status(201).json({ ok: true, data: nuevoPokemon });
+});
+
 // Inicializar el servidor en el puerto 3000
 app.listen(PORT, () => {
     console.log(`Servidor de Pokédex corriendo en http://localhost:${PORT}`);
