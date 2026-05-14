@@ -82,7 +82,35 @@ app.get('/api/status', (req, res) => {
     });
 });
 
+// GET /api/pokemon : Obtener todos los Pokémon con opción de filtrado por tipo
+app.get('/api/pokemon', (req, res) => {
+    // Obtenemos el tipo (/api/pokemon?tipo=Fuego)
+    const { tipo } = req.query; 
 
+    if (tipo) {
+        const filtrados = pokedex.filter(
+            (p) => p.tipo.toLowerCase().includes(tipo.toLowerCase())
+        );
+        return res.status(200).json({ ok: true, data: filtrados });
+    }
+
+    // Si no hay filtro, devolvemos el arreglo completo
+    res.status(200).json({ ok: true, data: pokedex });
+});
+
+// GET /api/pokemon/:id : Obtener un Pokémon por su ID
+app.get('/api/pokemon/:id', (req, res) => {
+    const { id } = req.params;
+    
+    const pokemon = pokedex.find((p) => p.id === id);
+
+    if (!pokemon) {
+        return res.status(404).json({ ok: false, error: "Pokémon no encontrado" });
+    }
+
+    // Si existe, lo devolvemos con 200
+    res.status(200).json({ ok: true, data: pokemon });
+});
 
 // Inicializar el servidor en el puerto 3000
 app.listen(PORT, () => {
