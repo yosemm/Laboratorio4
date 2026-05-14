@@ -2,7 +2,18 @@
 
 Repositorio para mi laboratorio de Sistemas web. 
 
-## Descripción del Proyecto (Parte 2 del Laboratorio)
+## Entregables
+
+**Parte 1:**
+- Errores corregidos y documentados en [SOLUCION.md](https://github.com/yosemm/Laboratorio4/blob/main/SOLUCION.md)
+- Versión corregida del servidor malo: [Servidor Corregido](https://github.com/yosemm/Laboratorio4/blob/main/servidor-corregido.js)
+
+**Parte 2:**
+- Código fuente de la API con Express (Pokédex) [index.js](api/index.js)
+- Documentación y evidencia de pruebas realizadas con Postman [PRUEBAS.md](PRUEBAS.md)
+- Screenshots del funcionamiento en Postman: [Screenshots Postman](screenshots/Postman)
+
+## Descripción del Proyecto (API REST)
 
 Este proyecto es una **API REST de Pokédex** que permite manejar una colección de Pokémon con su respectiva información como nombre, tipo, nivel, vida y ataques. 
 
@@ -62,14 +73,3 @@ http://localhost:3000/api/pokemon?tipo=Fuego
 # Obtener información del servidor
 http://localhost:3000/api/status
 ```
-
-## Entregables
-
-**Parte 1:**
-- Errores corregidos y documentados en [SOLUCION.md](https://github.com/yosemm/Laboratorio4/blob/main/SOLUCION.md)
-- Versión corregida del servidor malo: [Servidor Corregido](https://github.com/yosemm/Laboratorio4/blob/main/servidor-corregido.js)
-
-**Parte 2:**
-- Código fuente de la API con Express (Pokédex) [index.js](api/index.js)
-- Documentación y evidencia de pruebas realizadas con Postman [PRUEBAS.md](PRUEBAS.md)
-- Screenshots del funcionamiento en Postman: [Screenshots Postman](screenshots/Postman)
