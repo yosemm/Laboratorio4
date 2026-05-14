@@ -1,16 +1,16 @@
 # Laboratorio 4 - Sistemas Web
 
-Repo para el laboratorio de Sistemas web. 
+Repositorio para mi laboratorio de Sistemas web. 
 
-## Descripción del Proyecto
+## Descripción del Proyecto (Parte 2 del Laboratorio)
 
-Este proyecto es una **API REST de Pokédex** que permite manejar una colección de Pokémon con información como nombre, tipo, nivel, vida y ataques. 
+Este proyecto es una **API REST de Pokédex** que permite manejar una colección de Pokémon con su respectiva información como nombre, tipo, nivel, vida y ataques. 
 
 - La API proporciona endpoints para consultar todos los Pokémon, filtrarlos por tipo, obtener información del servidor y más.
 
 ## Tecnologías
 
-- **Node.js**: Runtime de JavaScript para ejecutar código en el servidor
+- **Node.js**: Entorno para ejecutar código JavaScript
 - **Express.js**: Framework para crear aplicaciones web y APIs REST
 
 ## Instalación y Ejecución
@@ -32,7 +32,7 @@ Este proyecto es una **API REST de Pokédex** que permite manejar una colección
 
 3. **Acceder a la API**
    - La API estará disponible en `http://localhost:3000`
-   - Abre tu navegador o usa herramientas como `Postman` para hacer solicitudes
+   - Se puede abrir el navegador o usar herramientas como `Postman` para hacer solicitudes
 
 ## Endpoints Principales
 
@@ -54,22 +54,22 @@ Este proyecto es una **API REST de Pokédex** que permite manejar una colección
 
 ```bash
 # Obtener todos los Pokémon
-curl http://localhost:3000/api/pokemon
+http://localhost:3000/api/pokemon
 
 # Filtrar Pokémon de tipo Fuego
-curl http://localhost:3000/api/pokemon?tipo=Fuego
+http://localhost:3000/api/pokemon?tipo=Fuego
 
 # Obtener información del servidor
-curl http://localhost:3000/api/status
+http://localhost:3000/api/status
 ```
 
 ## Entregables
 
 **Parte 1:**
-- [SOLUCION.md](https://github.com/yosemm/Laboratorio4/blob/main/SOLUCION.md)
-- [Servidor Corregido](https://github.com/yosemm/Laboratorio4/blob/main/servidor-corregido.js)
+- Errores corregidos y documentados en [SOLUCION.md](https://github.com/yosemm/Laboratorio4/blob/main/SOLUCION.md)
+- Versión corregida del servidor malo: [Servidor Corregido](https://github.com/yosemm/Laboratorio4/blob/main/servidor-corregido.js)
 
 **Parte 2:**
 - Código fuente de la API con Express (Pokédex) [index.js](api/index.js)
 - Documentación y evidencia de pruebas realizadas con Postman [PRUEBAS.md](PRUEBAS.md)
-- Screenshots del funcionamiento en Postman [Screenshots Postman](screenshots/Postman)
+- Screenshots del funcionamiento en Postman: [Screenshots Postman](screenshots/Postman)
