@@ -140,6 +140,74 @@ app.post('/api/pokemon', (req, res) => {
     res.status(201).json({ ok: true, data: nuevoPokemon });
 });
 
+// PUT /api/pokemon/:id : Actualiza un Pokémon completo
+app.put('/api/pokemon/:id', (req, res) => {
+    const { id } = req.params;
+    const { nombre, tipo, nivel, hp, ataques } = req.body;
+
+    const index = pokedex.findIndex(p => p.id === id);
+
+    if (index === -1) {
+        return res.status(404).json({ ok: false, error: "Pokémon no encontrado" });
+    }
+
+    // Validación para PUT 
+    if (!nombre || !tipo || nivel === undefined || hp === undefined || !ataques) {
+        return res.status(400).json({ 
+            ok: false, 
+            error: "Para PUT debes enviar todos los campos: nombre, tipo, nivel, hp y ataques." 
+        });
+    }
+
+    pokedex[index] = { id, nombre, tipo, nivel, hp, ataques };
+
+    res.status(200).json({ ok: true, data: pokedex[index] });
+});
+
+// PATCH /api/pokemon/:id : Actualiza parcialmente un Pokémon
+app.patch('/api/pokemon/:id', (req, res) => {
+    const { id } = req.params;
+    const datosNuevos = req.body;
+
+    const index = pokedex.findIndex(p => p.id === id);
+
+    if (index === -1) {
+        return res.status(404).json({ ok: false, error: "Pokémon no encontrado" });
+    }
+
+    pokedex[index] = { ...pokedex[index], ...datosNuevos };
+
+    res.status(200).json({ ok: true, data: pokedex[index] });
+});
+
+// DELETE /api/pokemon/:id : Elimina un Pokémon por su ID
+app.delete('/api/pokemon/:id', (req, res) => {
+    const { id } = req.params;
+    
+    // Buscamos el índice del Pokémon
+    const index = pokedex.findIndex(p => p.id === id);
+
+    if (index === -1) {
+        // Si no existe, devolvemos 404
+        return res.status(404).json({ ok: false, error: "Pokémon no encontrado" });
+    }
+
+    const pokemonEliminado = pokedex.splice(index, 1)[0];
+
+    // Devolvemos 200 y el Pokémon que acabamos de eliminar
+    res.status(200).json({ ok: true, data: pokemonEliminado, mensaje: "Pokémon eliminado exitosamente" });
+});
+
+// Rutas no encontradas
+app.use((req, res) => {
+    res.status(404).json({
+        error: "Ruta no encontrada",
+        ruta: req.originalUrl,
+        metodo: req.method,
+        sugerencia: "Visita / para ver los endpoints disponibles"
+    });
+});
+
 // Inicializar el servidor en el puerto 3000
 app.listen(PORT, () => {
     console.log(`Servidor de Pokédex corriendo en http://localhost:${PORT}`);
